@@ -6,6 +6,8 @@ const forecast = require('../src/utils/forecast')
 
 const app = express()
 
+const port = process.env.PORT || 3000
+
 const viewPath = path.join(__dirname, '../templates/views')
 const partialPath = path.join(__dirname, '../templates/partials')
 
@@ -32,7 +34,6 @@ app.get('/weather', (req, res) => {
 	if (!req.query.address) {
 		return res.send({ error: 'Please provide address' })
 	}
-	console.log(req.query)
 	let actualAdd = req.query.address
 	geoCode(actualAdd, (error, { latitude, longitude, location } = {}) => {
 		if (error) {
@@ -60,6 +61,6 @@ app.get('*', (req, res) => {
 	})
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
 	console.log('Server started')
 })
