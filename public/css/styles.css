@@ -1,5 +1,6 @@
 body {
 	background-image: url('../img/back.jpg');
+	background-repeat: no-repeat;
 	color: #333333;
 	font-family: Arial, Helvetica, sans-serif;
 	max-width: 650px;
